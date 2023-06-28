@@ -10,6 +10,7 @@
     <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Fonts -->
+    <link rel="stylesheet" href="<?php echo e(asset('css/design.css')); ?>">
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
@@ -18,11 +19,11 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                    <?php echo e(config('app.name', 'Laravel')); ?>
+        <nav class="navbar navbar-expand-md  shadow-sm head" style="background-color:#DC143C;height:45px">
 
+            <div class="container">
+                <a class="navbar-brand pr-4"  href="<?php echo e(url('/')); ?>">
+                   <img src="/svg/panda.jpg" class="rounded-circle" style="height:35px" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php echo e(__('Toggle navigation')); ?>">
                     <span class="navbar-toggler-icon"></span>
@@ -30,9 +31,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                   <div class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 
-                    </ul>
+                   </div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -52,9 +53,11 @@
                         <?php else: ?>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <?php echo e(Auth::user()->name); ?>
+                                    <?php echo e(Auth::user()->username); ?>
 
                                 </a>
+
+
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
@@ -63,6 +66,7 @@
                                         <?php echo e(__('Logout')); ?>
 
                                     </a>
+
 
                                     <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
                                         <?php echo csrf_field(); ?>

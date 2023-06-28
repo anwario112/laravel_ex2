@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile/{user}', [App\Http\Controllers\profilesController::class, 'index'])->name('profile.show');
+Route::get('/p/create', [App\Http\Controllers\PostController::class, 'create']);
+Route::post('storageImage', [App\Http\Controllers\PostController::class, 'storeImage'])->name('storeImage');
+
+
+
+Route::post('/home', [App\Http\Controllers\PostController::class, 'getAllUserPosts'])->name('home');
+
+
+
+
+
+
+
+
+
+
+
