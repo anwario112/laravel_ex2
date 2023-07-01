@@ -25,6 +25,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('caption')); ?>"
                           required autocomplete="caption" autofocus>
+                    
 
                           <?php $__errorArgs = ['caption'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

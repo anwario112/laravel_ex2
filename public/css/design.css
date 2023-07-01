@@ -122,8 +122,8 @@
 
 .posts{
     position: relative;
-    left:110px;
-    width:60%;
+    left:220px;
+    width:50%;
     height:450px;
     background-color: aliceblue;
     box-shadow: 10px 5px 5px lightgrey;
@@ -170,4 +170,17 @@
     top:18px;
     line-height: 22px;
 }
+.user-caption{
+    position: relative;
+    top:60px;
+    left:40px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 
+}
+.user-image{
+    position: relative;
+    top:120px;
+    left:200px;
+
+}

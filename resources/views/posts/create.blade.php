@@ -20,6 +20,7 @@
                          name="caption"
                          class="form-control @error('caption') is-invalid @enderror" value="{{ old('caption') }}"
                           required autocomplete="caption" autofocus>
+                    
 
                           @error('caption')
                           <span class="invalid-feedback" role="alert">

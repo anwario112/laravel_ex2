@@ -11,14 +11,14 @@ use App\Http\Controllers\Postscontroller;
 class profilescontroller extends Controller
 {
     public function index($user){
-    $user= User::findOrFail($user);
+    $user= User::findOrFail ($user);
 
     return view('profiles.index',[
         'user' => $user,
 
     ]);
 
-    
+
     }
 
 

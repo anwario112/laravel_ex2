@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+
+
 
 class PostController extends Controller
 {
@@ -27,37 +30,38 @@ class PostController extends Controller
 
             $request->validate([
                 'caption' => 'required',
-                'image' => 'required|image',
+                'image' => 'required|image | mimes:jpg,jpeg,png|max:2048',
             ]);
 
             $user = auth()->user();
 
-            $caption = $request->input('caption');
-            $image = $request->file('image')->store('public/images');
-
-            $post= new Post([
-                'caption' => $caption,
-                'image' => $image,
-            ]);
+            $post=new Post();
+            $post->caption = $request->input('caption');
 
 
+            if($request->hasfile('image')){
+                $image=$request->file('image');
+                $name=$image->getClientOriginalName();
+                $filename='public/images/'.$name;
+                $image->move('public/images',$filename);
+                $post->image=$filename;
+            }
 
 
-            $user->posts()->save($userPost);
-
-            $userPost = [
-                'caption' => $caption,
-                'image' => $image,
-            ];
 
 
-            return view('profiles.index');
+            $user->posts()->save($post);
+
+            return redirect()->action("App\Http\Controllers\PostController::class, 'getAllUserPosts'");
         }
 
-        public function getallposts(){
-            Auth::user()->id;
-            print_r($id);
-        }
+        public function getallUserposts(){
+
+           $id=Auth::user()->id;
+             $userPost=Post::all();
+             return view('home',compact('userPost'));
+
+               }
 
 
 

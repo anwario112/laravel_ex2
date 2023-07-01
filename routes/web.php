@@ -20,13 +20,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/profile/{user}', [App\Http\Controllers\profilesController::class, 'index'])->name('profile.show');
 Route::get('/p/create', [App\Http\Controllers\PostController::class, 'create']);
-Route::post('storageImage', [App\Http\Controllers\PostController::class, 'storeImage'])->name('storeImage');
+Route::post('storeImage', [App\Http\Controllers\PostController::class, 'storeImage'])->name('storeImage');
 
 
 
-Route::post('/home', [App\Http\Controllers\PostController::class, 'getAllUserPosts'])->name('home');
+Route::get('/home', [App\Http\Controllers\PostController::class, 'getAllUserPosts'])->name('home');
 
 
 
