@@ -52,7 +52,7 @@ class PostController extends Controller
 
             $user->posts()->save($post);
 
-            return redirect()->action("App\Http\Controllers\PostController::class, 'getAllUserPosts'");
+            return redirect('/home');
         }
 
         public function getallUserposts(){
