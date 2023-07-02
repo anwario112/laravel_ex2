@@ -18,7 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([
+    'verify'=>true
+]);
 
 
 Route::get('/profile/{user}', [App\Http\Controllers\profilesController::class, 'index'])->name('profile.show');
@@ -27,7 +29,7 @@ Route::post('storeImage', [App\Http\Controllers\PostController::class, 'storeIma
 
 
 
-Route::get('/home', [App\Http\Controllers\PostController::class, 'getAllUserPosts'])->name('home');
+Route::get('/home', [App\Http\Controllers\PostController::class, 'getAllUserPosts'])->name('home')->middleware('verified');
 
 
 

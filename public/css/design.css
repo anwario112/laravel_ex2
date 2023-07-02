@@ -121,13 +121,13 @@
 }
 
 .posts{
-    position: relative;
+    position: fixed;
     left:220px;
     width:50%;
     height:450px;
     background-color: aliceblue;
     box-shadow: 10px 5px 5px lightgrey;
-    top:26px;
+    top:110px;
 }
 .btn-post{
     position: relative;
@@ -175,7 +175,7 @@
     top:60px;
     left:40px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
+
 
 }
 .user-image{
