@@ -133,17 +133,6 @@ unset($__errorArgs, $__bag); ?>
 
     </div>
 
-    <div class="posts">
-        <div><img src="/svg/profile.png" class=" rounded-circle img-post" alt=""></div>
-
-        <?php $__currentLoopData = $userPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-           <div><h3><?php echo e($post->caption); ?></h3></div>
-           <div><img src="<?php echo e(asset('storage/images' . $post->images)); ?>"></div>
-           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-    </div>
-
-
    </div>
 </div>
 

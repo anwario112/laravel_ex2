@@ -120,18 +120,6 @@
 
 
     </div>
-     @foreach ($userPosts as $post)
-    <div class="posts">
-        <div><img src="/svg/profile.png" class=" rounded-circle img-post" alt=""></div>
-
-
-           <div><h3>{{$post->caption}}</h3></div>
-           <div><img src="{{asset('storage/images' . $post->images)}}"></div>
-
-
-    </div>
-    @endforeach
-
 
    </div>
 </div>

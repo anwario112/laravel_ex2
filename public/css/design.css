@@ -184,3 +184,29 @@
     left:200px;
 
 }
+
+.like{
+ position: relative;
+ top:170px;
+ left:50px;
+ font-size: 17px;
+}
+.dislike{
+    position: relative;
+ top:142px;
+ left:120px;
+ font-size: 17px;
+ text-decoration: none;
+}
+.like-icon{
+    position: absolute;
+    right:688px;
+    top:4px;
+}
+.dislike-icon{
+    position: absolute;
+    right:688px;
+    top:4px;
+
+}
+

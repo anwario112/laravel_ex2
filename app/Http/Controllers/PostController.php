@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\likes;
+use App\User;
 
 
 
@@ -64,7 +66,10 @@ class PostController extends Controller
                }
 
 
+       public function LikePosts($id){
+        echo $id;
 
+       }
 
 }
 

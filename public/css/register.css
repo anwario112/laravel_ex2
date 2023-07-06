@@ -1,0 +1,107 @@
+body{
+    position: relative;
+    background-color: rgb(234, 230, 230);
+
+}
+.img{
+    position: relative;
+    left:600px;
+    width:5%;
+    height:5%;
+    top:50px;
+}
+
+.form{
+
+    position: relative;
+    width:300px;
+    height:430px;
+    background-color:whitesmoke;
+    left:500px;
+    top:70px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.inputs{
+    position: relative;
+    top:50px;
+}
+.name-input,.lastname-input,.email-input,.username-input,.password-input,.confirm-input{
+    width:250px;
+    height:25px;
+}
+
+.name-label{
+    position: relative;
+    left:20px;
+    bottom: 30px;
+}
+.name-input{
+    position: relative;
+    left:20px;
+    bottom: 25px;
+}
+.lastname-label{
+    position: relative;
+    left:20px;
+    bottom: 20px;
+}
+.lastname-input{
+    position: relative;
+    left:20px;
+    bottom: 20px;
+}
+.email-label{
+    position: relative;
+    left:20px;
+    bottom: 15px;
+}
+.email-input{
+    position: relative;
+    left:20px;
+    bottom: 12px;
+}
+.username-label{
+    position: relative;
+    left:20px;
+    bottom: 6px;
+}
+.username-input{
+    position: relative;
+    left:20px;
+    bottom: 3px;
+}
+.password-label{
+    position: relative;
+    left:20px;
+}
+.password-input{
+    position: relative;
+    left:20px;
+}
+.password-confirm{
+    position: relative;
+    left:20px;
+    top:4px;
+}
+.confirm-input{
+    position: relative;
+    left:20px;
+    top:6px;
+}
+.register-input{
+    position: relative;
+    background-color: black;
+    left:25px;
+    color:whitesmoke;
+    top:20px;
+    width:250px;
+    height:25px;
+    border-radius: 5px;;
+}
+.login-link{
+    position: relative;
+    top:15px;
+    left:25px;
+}

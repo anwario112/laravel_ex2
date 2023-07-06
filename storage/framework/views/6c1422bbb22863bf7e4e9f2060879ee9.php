@@ -20,6 +20,11 @@
     <?php $__currentLoopData = $userPost; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <div class="user-caption"><h3><?php echo e($post->caption); ?></h3></div>
        <div class="user-image"><img src="<?php echo e(asset($post->image)); ?>"></div>
+
+
+       <div class="like"><a href="<?php echo e(url('liked /' .$post->id. '/')); ?>"><ion-icon name="heart-outline" class="like-icon"></ion-icon><span>like</span></a></div>
+       <div class="dislike"><a href=""><ion-icon name="heart-dislike-outline" class="dislike-icon"></ion-icon><span>dislike</span></a></div>
+
        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 </div>
