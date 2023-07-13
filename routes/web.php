@@ -31,7 +31,7 @@ Route::post('storeImage', [App\Http\Controllers\PostController::class, 'storeIma
 
 Route::get('/home', [App\Http\Controllers\PostController::class, 'getAllUserPosts'])->name('home');
 
-Route::get('/liked', [App\Http\Controllers\PostController::class, 'LikePosts'])->name('liked');
+
 
 
 

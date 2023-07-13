@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\likes;
+use Illuminate\Support\Facades\DB;
+use App\models\likes;
 use App\User;
 
 
@@ -59,17 +60,36 @@ class PostController extends Controller
 
         public function getallUserposts(){
 
-           $id=Auth::user()->id;
-             $userPost=Post::all();
-             return view('home',compact('userPost'));
+
+                $id = Auth::user()->id;
+
+                $userPosts = DB::table('posts')
+                    ->join('likes', 'likes.post_id', '=', 'posts.id')
+                    ->get();
+
+
+                    $postsArray = [];
+
+                    foreach ($userPosts as $post) {
+                        $postArray = [
+                            'image' => $post->image,
+                            'caption' => $post->caption,
+                            'likes' => $post->likes
+                        ];
+
+                        $postsArray[] = $postArray;
+
+                    }
+
+
+
+                   return view('home',compact('postArray',$postArray));
+
 
                }
 
 
-       public function LikePosts($id){
-        echo $id;
 
-       }
 
 }
 

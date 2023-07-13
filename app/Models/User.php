@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 
-class User extends Authenticatable 
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -53,6 +53,9 @@ class User extends Authenticatable
     }
     public function profile(){
         return $this->hasOne(Profile::class);
+    }
+    public function likes(){
+        return $this->hasMany(User::class);
     }
    // public function posts(){
      //   return $this->hasMany(Post::class)->orderBy('create_at','DESC');

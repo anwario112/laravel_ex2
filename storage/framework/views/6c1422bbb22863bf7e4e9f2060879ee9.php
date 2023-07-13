@@ -17,15 +17,40 @@
    <div class="posts">
     <div><img src="/svg/profile.png" class=" rounded-circle img-post" alt=""></div>
 
-    <?php $__currentLoopData = $userPost; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-       <div class="user-caption"><h3><?php echo e($post->caption); ?></h3></div>
-       <div class="user-image"><img src="<?php echo e(asset($post->image)); ?>"></div>
-
-
-       <div class="like"><a href="<?php echo e(url('liked /' .$post->id. '/')); ?>"><ion-icon name="heart-outline" class="like-icon"></ion-icon><span>like</span></a></div>
-       <div class="dislike"><a href=""><ion-icon name="heart-dislike-outline" class="dislike-icon"></ion-icon><span>dislike</span></a></div>
-
+    <?php $__currentLoopData = $postArray; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+       <div class="user-image"><img src="<?php echo e(asset($post['image'])); ?>"></div>
+       <div class="user-caption"><h3><?php echo e($post['caption']); ?></h3></div>
        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+       <?php
+       $like_count=0;
+       $dislike_count=0;
+
+       $like_status="btn-secondary";
+       $dislike_status="btn-secondary";
+       ?>
+    <?php $__currentLoopData = $postArray['likes']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $like): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+         <?php
+         if($like->Like==1){
+            $like_count++;
+         }
+         if($like->like==0){
+            $dislike_count++;
+         }
+         if($like->like ==1  && $like->user_id == Auth::user_id()->id){
+            $like_status="btn-success";
+         }
+         if($like->like ==0 && $like->user_id == Auth::user_id()->id){
+            $dislike_status="btn-danger";
+         }
+
+         ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      <div class="like"><button type="button" class="btn ">Like <span class="glyphicon glyphicon-chevron-right"></span> <span><b><?php echo e($like_count); ?></b></span></button></div>
+       <div class="dislike"><button type="button" class="btn ">Dislike <span class="glyphicon glyphicon-thumbs-down"> <span><b><?php echo e($dislike_count); ?></b></span></span></button></div>
+
 
 </div>
 
