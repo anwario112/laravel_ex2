@@ -33,7 +33,8 @@
        $like_status="btn-secondary";
        $dislike_status="btn-secondary";
        @endphp
-    @foreach($postArray['likes'] as $like )
+       @if (isset($postArray['likes']) && is_array($postArray['likes']))
+        @foreach($postArray['likes'] as $like )
 
          @php
          if($like->Like==1){
@@ -51,8 +52,9 @@
 
          @endphp
     @endforeach
-      <div class="like"><button type="button" class="btn ">Like <span class="glyphicon glyphicon-chevron-right"></span> <span><b>{{$like_count}}</b></span></button></div>
-       <div class="dislike"><button type="button" class="btn ">Dislike <span class="glyphicon glyphicon-thumbs-down"> <span><b>{{$dislike_count}}</b></span></span></button></div>
+    @endif
+      <div class="like"><button type="button" class="btn" class="like">Like <span class="glyphicon glyphicon-chevron-right"></span> <span><b>{{$like_count}}</b></span></button></div>
+       <div class="dislike"><button type="button" class="btn" class="dislike">Dislike <span class="glyphicon glyphicon-thumbs-down"> <span><b>{{$dislike_count}}</b></span></span></button></div>
 
 
 </div>

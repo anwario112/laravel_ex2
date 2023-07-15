@@ -172,15 +172,16 @@
 }
 .user-caption{
     position: relative;
-    top:60px;
+    bottom:70px;
     left:40px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width:650px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 
 }
 .user-image{
     position: relative;
-    top:120px;
+    top:150px;
     left:200px;
 
 }
@@ -189,13 +190,14 @@
  position: relative;
  top:170px;
  left:50px;
- font-size: 17px;
+ font-size: 27px;
 }
 .dislike{
     position: relative;
- top:142px;
+ top:126px;
  left:120px;
  font-size: 17px;
  text-decoration: none;
+ font-size: 27px;
 }
 

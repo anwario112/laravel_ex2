@@ -18,6 +18,7 @@
     <div><img src="/svg/profile.png" class=" rounded-circle img-post" alt=""></div>
 
     <?php $__currentLoopData = $postArray; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
        <div class="user-image"><img src="<?php echo e(asset($post['image'])); ?>"></div>
        <div class="user-caption"><h3><?php echo e($post['caption']); ?></h3></div>
        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

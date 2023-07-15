@@ -82,8 +82,7 @@ class PostController extends Controller
                     }
 
 
-
-                   return view('home',compact('postArray',$postArray));
+                   return view('/home')->with('postArray',$postsArray);
 
 
                }
