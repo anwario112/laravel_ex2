@@ -15,51 +15,44 @@
     </ul>
     </div>
    </div>
-
+   <form action="{{route('like')}}" method="POST">
+    @csrf
    <div class="posts">
     <div><img src="/svg/profile.png" class=" rounded-circle img-post" alt=""></div>
 
-    @foreach ($postArray as $post)
-
-       <div class="user-image"><img src="{{asset($post['image'])}}"></div>
-       <div class="user-caption"><h3>{{$post['caption']}}</h3></div>
-       @endforeach
+    @foreach ($combinedData as $post)
+    <div class="user-image"><img src="{{ asset($post['image']) }}"></div>
+        <div class="user-caption"><h3>{{ $post['caption'] }}</h3></div>
 
 
-       @php
-       $like_count=0;
-       $dislike_count=0;
 
-       $like_status="btn-secondary";
-       $dislike_status="btn-secondary";
-       @endphp
-       @if (isset($postArray['likes']) && is_array($postArray['likes']))
-        @foreach($postArray['likes'] as $like )
+        @php
+            $like_status="btn-secondary";
+            $dislike_status="btn_secondary";
+        @endphp
 
-         @php
-         if($like->Like==1){
-            $like_count++;
-         }
-         if($like->like==0){
-            $dislike_count++;
-         }
-         if($like->like ==1  && $like->user_id == Auth::user_id()->id){
-            $like_status="btn-success";
-         }
-         if($like->like ==0 && $like->user_id == Auth::user_id()->id){
-            $dislike_status="btn-danger";
-         }
+              @foreach ($post['likes'] as $like)
+                     @php
+                        if($like['likeCount'] && $like['user_id']==Auth::user()->id){
+                          $like_status="btn-success";
+                        }
+                        if($like['dislikeCount'] && $like['user_id']==Auth::user()->id){
+                          $dislike_status="btn-danger";
+                        }
 
-         @endphp
-    @endforeach
-    @endif
-      <div class="like"><button type="button" class="btn" class="like">Like <span class="glyphicon glyphicon-chevron-right"></span> <span><b>{{$like_count}}</b></span></button></div>
-       <div class="dislike"><button type="button" class="btn" class="dislike">Dislike <span class="glyphicon glyphicon-thumbs-down"> <span><b>{{$dislike_count}}</b></span></span></button></div>
+                     @endphp
+              @endforeach
+        @endforeach
 
+        <div class="like" ><button type="button" data-postid="{{$post['id']}}_L" data-like={{$like_status}} class="likes btn {{$like_status}}" >Like <span class="glyphicon glyphicon-chevron-right"></span> <span><b><span class="likeCount">{{$like['likeCount']}}</span></b></span></button></div>
+        <div class="dislike" ><button type="button" data-postid="{{$post['id']}}_D" data-dislike={{$dislike_status}} class="dislikes btn {{$dislike_status}}" >Dislike <span class="glyphicon glyphicon-chevron-right"></span> <span><b><span class="dislikeCount">{{$like['dislikeCount']}}</span></b></span></button></div>
+
+
+
+</form>
 
 </div>
-
-
+<script src="{{url('/js/like.js')}}"></script>
 
 
 @endsection
