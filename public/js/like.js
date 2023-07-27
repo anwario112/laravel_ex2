@@ -39,7 +39,7 @@ $(document).ready(function() {
                 if(data.change_like==1){
                     var cu_dislike= $('*[data-postid="'+ post_id +'_D"]').find('.dislikeCount').text();
                     var new_dislike=parseInt(cu_dislike) - 1;
-                    $('*[data-postid="'+ post_id +'_D"]').find('.dislikeCount').text(new_like);
+                    $('*[data-postid="'+ post_id +'_D"]').find('.dislikeCount').text(new_dislike);
 
                 }
 
