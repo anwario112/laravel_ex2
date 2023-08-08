@@ -6,7 +6,7 @@
     <div class="dashboard">Main</div>
       <div class="dash">
         <img src="/svg/dashboard2.png" class="img"  alt="">
-        <button class="btn dropdown-toggle menu" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn  text-white dropdown-toggle menu" type="button"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Dashboard
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -14,113 +14,87 @@
         <li><a class="dropdown-item" href="#">charts</a></li>
     </ul>
     </div>
+    <button class="create-btn" id="create-btn"> <ion-icon name="create-outline" class="create"></ion-icon>create</button>
+
    </div>
    <div class="profile">
-    <div class="profile-data">
-        <img src="/svg/profile.png" class="rounded-circle profile-img" alt="">
-        <div>
-            <h2 class="user">{{$user->username}}</h2>
-            <h2 class="email"><a href="">{{$user->email}}</a></h2>
-            <div class="description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                 Consectetur quam quos, ut laboriosam quisquam alias blanditiis architecto explicabo rerum nobis enim, id illum! Ab sint libero quos magni, deleniti iusto.</p></div>
-        </div>
-        <div>
-            <button type="button" class="btns" data-bs-toggle="modal" data-bs-target="#edit-profile">
-                Edit profile
-              </button>
-
-              <div class="modal fade" id="edit-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                       @if ($errors->any())
-                         <div class="alert alert-danger">
-                             <ul>
-                                 @foreach ($errors->all() as $error)
-                                     <li>{{ $error }}</li>
-                                 @endforeach
-                             </ul>
-                         </div>
-                     @endif
-                    <form action="">
-                        @csrf
-                    <div class="modal-body">
-                       <div>
-                        <img src="/svg/profile.png" class="rounded-circle img-modal" alt="">
-                       </div>
-                       <div class="mb-3">
-                        <label for="image" class="form-label">image</label>
-                        <input type="file" class="form-control" class="image" name="">
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <input type="textarea" class="form-control" name="descripton" class="detail">
-                      </div>
-                    </div>
-                     </form>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
+    <div class="pro-image">
+    <img src="/svg/profile.png" class="rounded-circle profile-image" alt="">
+    </div>
+    <div class="profile-username">
+        <h2 class="username">{{$user->username}}</h2>
+    </div>
+    <div class="profile-caption">
+        <p class="pro-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dolore labore reiciendis ipsam deserunt magnam quos omnis nulla doloremque, pariatur, unde architecto rem officiis eveniet sint quam voluptas dignissimos. Illo?</p>
+    </div>
+    <div class="profile-email">
+        <a href="" class="pro-email">{{$user->email}}</a>
+     </div>
        </div>
+
+       <!-- Modal -->
+       <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModalBtn">&times;</span>
+            <h2>Add New Post</h2>
+            <form action="{{ route('storeImage') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+
+                <div class="row ">
+
+                </div>
+                <div class="row pt-5 ">
+                    <div class="col-8 offset-2">
+                        <div class="row mb-3">
+                           <div id="message" class="alert" style="displat:none"></div>
+                            <div class="col-md-6">
+                            <form  action="{{route('storeImage')}}" method="POST" enctype="multipart/form-data" id="form" >
+                                @csrf
+                                <div class="form-group">
+                                    <textarea type="text" id="captionInput" name="caption" placeholder="write a caption" class="caption-input" class=" @error('caption') is-invalid @enderror" value="{{ old('caption') }}"
+                                    required autocomplete="caption" autofocus required></textarea>
+
+                                </div>
+                                  @error('caption')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <input type="file" id="uploadInput" name="image" class="input-file">
+                             <label for="uploadInput" class="custom-upload-btn">
+                                         <span>select from computer</span>
+                                </label>
+                                
+
+                            @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                        </div>
+                        <div class="row pt-3">
+                            <button class="btn btn-primary">Add post</button>
+                        </div>
+
+                    </div>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+  <!--end-->
       <div>
     </div>
-
-    <div>
-        <a href="/p/create"  class="btn btn-danger btn-post" >post</a>
-
-        <div class="modal fade" id="post" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="btn-close" caption='caption'
-                     data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="profile" enctype="multipart/form-data" method="post"></form>
-                @csrf
-                <div class="modal-body">
-                  <div>
-
-                    <input type="text" class="input-modal"  name="caption" placeholder="Type something">
-
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                </div>
-                  <div>
-
-                    <input type="file" placeholder="image"  name="image"class="image-modal">
-
-
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-
-                </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">add</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-    </div>
-
    </div>
 </div>
+<script src="{{url('/js/modal.js')}}"></script>
+<script src="{{url('/js/uploadpost.js')}}"></script>
+
+@endsection
 

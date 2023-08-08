@@ -1,165 +1,10 @@
 
-.head{
-    z-index: 1;
-}
-.nav-side{
-    position: fixed;
-    left:0px;
-    width:14%;
-    height:100%;
-   background-color: #2F4F4F;
-    position: fixed;
-    bottom:3px;
-}
-.dashboard{
-    color:white;
-    position: relative;
-    top:50px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:16px;
-    left:15px;
-}
-.img{
-    width:30px;
-    height:30px;
-    position: relative;
-    top:60px;
-    left:20px;
-}
-.menu{
-    position: relative;
-    top:60px;
-    left:30px;
-
-}
-.title{
-    position: relative;
-    left:100px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.second-title{
-    position: relative;
-    left:1000px;
-    color:	#696969;
-    bottom:30px;
-}
-
-
-.profile-data{
-  position: relative;
-  left:110px;
-  width:1170px;
-  height:160px;
-  background-color: rgba(130, 165, 166,0.5);
-  bottom:30px;
-  left:70px;
-  z-index: -1;
-
-
-
-}
-.profile-img{
-    position: relative;
-    left:30px;
-    width:90px;
-    height:90px;
-    top:30px;
-}
-.user{
-    position: relative;
-    left:150px;
-    bottom:70px;
-}
-.email{
-    position: relative;
-    font-size: 14px;
-    left:150px;
-    bottom:70px;
-}
-
-.add-icon{
-    position: relative;
-    bottom:450px;
-    left:960px;
-    width:30px;
-    height:30px;
-}
-.description{
-    position: absolute;
-    font-size: 15px;
-    width:800px;
-    left: 150px;
-    bottom:10px;
-
-}
-
-.btns{
-    position: relative;
-    left:1040px;
-    bottom:60px;
-    background-color: transparent;
-    color:white;
-    border-color: white;
-
-}
-.img-modal{
-    position: relative;
-    left:180px;
-    width:90px;
-    height:90px;
-    bottom:14px;
-}
-.camera{
-    position: relative;
-    width:30px;
-    height:30px;
-    left:150px;
-    top:15px;
-}
-.detail,.username,.email.image{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.posts{
-    position: fixed;
-    left:220px;
-    width:50%;
-    height:450px;
-    background-color: aliceblue;
-    box-shadow: 10px 5px 5px lightgrey;
-    top:110px;
-}
-.btn-post{
-    position: relative;
-    z-index: 1;
-    left:110px;
-}
-
 .img-post{
     position: relative;
-    width:40px;
-    height:40px;
-    left:30px;
+    width:50px;
+    height:50px;
     top:20px;
-}
-.user-post{
-    position: relative;
-    left:80px;
-    bottom:10px;
-}
-.modal-post{
-    color:rgb(201, 188, 188);
-}
-.input-modal{
-    position: relative;
-    border: none;
-    background: transparent;
-    outline: none;
-}
-
-.image-modal{
-    position: relative;
-    top:40px;
+    left:30px;
 }
 .post-caption{
     position: relative;
@@ -167,7 +12,7 @@
     left:40px;
     font-size:16px;
     font-family:Arial, Helvetica, sans-serif;
-    top:18px;
+    top:15px;
     line-height: 22px;
 }
 .user-caption{
@@ -188,16 +33,162 @@
 
 .like{
  position: relative;
- top:170px;
+ top:150px;
  left:50px;
  font-size: 27px;
 }
 .dislike{
     position: relative;
- top:126px;
+ top:107px;
  left:120px;
  font-size: 17px;
  text-decoration: none;
  font-size: 27px;
 }
+.post-form {
+    position: relative;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    width:500px;
+    height:490px;
+    left:180px;
+  }
+
+  .posts{
+    width: 80%; /* Adjust the width as per your preference */
+    margin: 0 auto; /* Center the form on the page */
+  }
+  .point{
+    position: relative;
+    left:400px;
+    bottom:30px;
+    width:40px;
+    height:40px;
+  }
+  .username-title{
+    position: absolute;
+    left:100px;
+    bottom:430px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+  }
+  
+
+
+#openModalBtn{
+    position: relative;
+    border-color: lightgrey;
+    border-radius: 20px;
+    width:100px;
+    height:30px;
+    left:50px;
+    bottom:40px;
+    background-color: transparent;
+    color:rgb(78, 165, 194);
+    padding:0px 20px 0px 0px;
+
+}
+
+  .dropdown-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 400px;
+    top: 190px;
+    width: 25%;
+    height: 25%;
+
+
+
+
+
+  }
+
+  /* Modal Content */
+  .dropdown-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+  }
+
+  /* Close Button */
+  .Exit {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    bottom:20px;
+    bottom:10px;
+    position: relative;
+
+  }
+
+  .Exit:hover,
+  .Exit:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+   .dropdown{
+    position: relative;
+    width:15px;
+    height:15px;
+    color:rgb(78, 165, 194);
+    bottom:22px;
+    left:45px;
+   }
+
+   .title-drop{
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    bottom:10px;
+   }
+   .world{
+    position: relative;
+    width:40px;
+    height:40px;
+   }
+   .world-everyone{
+    position: relative;
+    font-weight: bold;
+    bottom:25px;
+    left:50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   }
+   .users{
+    position: relative;
+    width:50px;
+    height:50px;
+    right:6px;
+    bottom:25px;
+   }
+   .users-circle{
+    position: relative;
+    bottom:60px;
+    left:50px;
+    font-weight: bold;
+
+   }
+   .subscribe{
+    position: relative;
+    z-index: 1;
+    left:40px;
+   }
+
+
+
+
+
+
 

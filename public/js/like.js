@@ -14,6 +14,7 @@ $(document).ready(function() {
         var like_s = $(this).attr('data-like');
         var post_id = $(this).attr('data-postid');
         post_id=post_id.slice(0,-2);
+        alert(post_id);
 
 
 
@@ -26,6 +27,7 @@ $(document).ready(function() {
                 post_id: post_id
             },
             success: function(data) {
+                
                 if(data.is_like==1){
                     $('*[data-postid="'+ post_id +'_L"]').removeClass('btn-secondary').addClass('btn-success');
                     $('*[data-postid="'+ post_id +'_D"]').removeClass('btn-danger').addClass('btn-secondary');
@@ -85,6 +87,7 @@ $.ajax({
     },
     success: function(data) {
 
+
         if(data.is_dislike==1){
             $('*[data-postid="'+ post_id +'_D"]').removeClass('btn-secondary').addClass('btn-danger');
             $('*[data-postid="'+ post_id +'_L"]').removeClass('btn-success').addClass('btn-secondary');
@@ -93,15 +96,14 @@ $.ajax({
                     var new_dislike=parseInt(cu_dislike) + 1;
                     $('*[data-postid="'+ post_id +'_D"]').find('.dislikeCount').text(new_dislike);
 
-
         }
-
 
         if(data.change_dislike==1){
             var cu_like= $('*[data-postid="'+ post_id +'_L"]').find('.likeCount').text();
             var new_like=parseInt(cu_like) - 1;
             $('*[data-postid="'+ post_id +'_L"]').find('.likeCount').text(new_like);
         }
+        alert(data.change_dislike);
         if(data.is_dislike==0){
             $('*[data-postid="'+ post_id +'_D"]').removeClass('btn-danger').addClass('btn-secondary');
 
