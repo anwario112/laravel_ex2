@@ -10,6 +10,8 @@ use App\Http\Controllers\Postscontroller;
 
 class profilescontroller extends Controller
 {
+
+
     public function index($user){
     $user= User::findOrFail ($user);
 
@@ -17,9 +19,12 @@ class profilescontroller extends Controller
         'user' => $user,
 
     ]);
-
-
     }
+
+
+    
+
+
 
 
 

@@ -18,7 +18,11 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.7.0.js"
+  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+  crossorigin="anonymous"></script>
 
 
 
@@ -28,54 +32,56 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md  shadow-sm head" style="background-color:#DC143C;height:45px">
-
+        <nav class="navbar navbar-expand-md shadow-sm head" style="background-color: #DC143C; height: 45px">
             <div class="container">
-                <a class="navbar-brand pr-4"  href="{{ url('/') }}">
-                   
+                <!-- Brand/logo section -->
+                <a class="navbar-brand pr-4" href="{{ url('/') }}">
+                    <!-- Insert your logo/brand content here -->
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+
+                <!-- Hamburger button for mobile navigation -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- Navigation links and authentication links -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                   <div class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                    <!-- Left Side Of Navbar (navigation links, if any) -->
+                    <ul class="navbar-nav">
+                        <!-- Insert your navigation links here -->
+                    </ul>
 
-                   </div>
-
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side Of Navbar (authentication links) -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
                         @guest
+                            <!-- Show login and registration links if guest -->
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
+                            <!-- Show user dropdown if authenticated -->
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
-
-
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          class="d-none">
                                         @csrf
                                     </form>
                                 </div>
@@ -86,9 +92,28 @@
             </div>
         </nav>
 
+        <div class="nav-side">
+            <div class="dash">
+               <h3 class="title">forax</h3>
+            <a class="home-btn" href={{route('home')}}><ion-icon name="home" class="home"></ion-icon>Home</a>
+            <a  href="{{ route('profile.show', ['user' => Auth::user()->id]) }}"  class="profile-btn"><ion-icon name="person-outline" class="profile-create"></ion-icon >Profile</a>
+               <div class="create">  <button class="create-btn text-black" id="create-btn"> <ion-icon name="create-outline" class="create"></ion-icon>create</button></div>
+               <div> <a class="logout-btn" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                 {{ __('Logout') }}
+             </a>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST"
+             class="d-none">
+                @csrf
+                </form>
+               </div>
+       </div>
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+
+
 </body>
 </html>

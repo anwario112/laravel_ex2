@@ -17,7 +17,7 @@
                         <label for="email" class="label-email">{{ __('Email Address') }}</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="email-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input id="email" type="email" class="email-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="off" autofocus>
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                         <label for="password" class="label-password">{{ __('Password') }}</label>
 
                         <div class="col-md-6">
-                            <input id="password" type="password" class="password-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <input id="password" type="password" class="password-input @error('password') is-invalid @enderror" name="password" required autocomplete="off">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">

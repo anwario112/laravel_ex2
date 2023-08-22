@@ -12,6 +12,8 @@ use App\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str; // Import the Str class
+use Carbon\Carbon;
+
 
 
 
@@ -36,9 +38,15 @@ class PostController extends Controller
 
 
             $validator = Validator::make($request->all(), [
-                'caption' => 'required',
+                'caption' => 'required|min:5',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
+            ],
+            [
+                'text.required'=>'Add something ....',
+                'text.min'=>'It is short'
+            ]
+
+        );
 
             $user = Auth::user();
             if ($validator->passes()) {
@@ -74,69 +82,6 @@ class PostController extends Controller
 
         }
 
-        public function getallUserposts(){
-            $id = Auth::user()->id;
-            $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
-            ->where('user_id', $id)
-            ->select('posts.*', 'users.username as user_username')
-            ->get();
-
-            // Fetch likes for all posts in one query
-            $likes = DB::table('likes')
-                ->select('post_id', 'likes', DB::raw('MAX(user_id) as user_id'), DB::raw('COUNT(*) as likes_count'))
-                ->whereIn('post_id', function ($query) use ($posts) {
-                    $query->select('id')
-                          ->from('posts')
-                          ->whereIn('id', $posts->pluck('id'));
-                })
-                ->groupBy('post_id', 'likes')
-                ->get();
-
-            $combinedData = [];
-            foreach ($posts as $post) {
-                // Initialize like and dislike counts for each post
-                $likeCount = 0;
-                $dislikeCount = 0;
-
-                // Calculate like and dislike counts for the current post
-                foreach ($likes as $like) {
-                    if ($like->post_id === $post->id) {
-                        if ($like->likes == 1) {
-                            $likeCount = $like->likes_count;
-                        } elseif ($like->likes == 0) {
-                            $dislikeCount = $like->likes_count;
-                        }
-                    }
-                }
-
-                $postArray = [
-                    'id' => $post->id,
-                    'image' => $post->image ?? null,
-                    'caption' => $post->caption ?? null,
-                    'user_username' => $post->user_username,
-                    'likes' => [],
-
-                ];
-
-                // Fetch likes for the current post and add them to the 'likes' array
-                foreach ($likes as $like) {
-                    if ($like->post_id === $post->id) {
-                        $postArray['likes'][] = [
-                            'likes' => $like->likes,
-                            'likeCount' => $likeCount,
-                            'dislikeCount' => $dislikeCount,
-                            'user_id' => $like->user_id,
-                            'post_id' => $like->post_id,
-                        ];
-                    }
-                }
-               
-
-                $combinedData[] = $postArray;
-            }
-
-            return view('home')->with('combinedData', $combinedData);
-         }
 
 
             public function like(Request $request){

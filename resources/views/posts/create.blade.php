@@ -20,7 +20,7 @@
                          name="caption"
                          class="form-control @error('caption') is-invalid @enderror" value="{{ old('caption') }}"
                           required autocomplete="caption" autofocus>
-                    
+
 
                           @error('caption')
                           <span class="invalid-feedback" role="alert">
@@ -48,6 +48,14 @@
             </div>
             </div>
     </form>
+
+    @if(count($errors))
+    <ul>
+        @foreach($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+    </ul>
+    @endif
 
 </div>
 @endsection

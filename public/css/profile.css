@@ -1,20 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@700&family=Oswald&family=Satisfy&display=swap');
-
-
 .container{
-    position: fixed;
+    position: relative;
+    right:20px;
+    top:5px;
+}
+#app{
+    position: relative;
+    width:100%;
+  
 }
 .head{
     z-index: 1;
 }
 .nav-side{
-
     position: fixed;
     width: 250px;
     height: 100vh;
     top:0;
     left: 0;
-    border-right: 1px solid lightgrey;
+    border-right: 2px solid lightgrey;
     box-sizing: border-box;
 }
 .title{
@@ -43,11 +47,16 @@
     font-size: 23px;
     left:92px;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color:black;
      bottom:60px;
 }
 .home{
     position:absolute;
-    right:97px;
+    right:85px;
+    top:2px;
+    color:black;
+
 
 }
 .profile-btn{
@@ -56,13 +65,30 @@
     background-color: transparent;
     border: none;
     font-size: 23px;
-    left:10px;
+    left:30px;
     font-family:Georgia, 'Times New Roman', Times, serif;
      bottom:60px;
+     text-decoration: none;
+     color: black;
 }
 .profile-create{
     position: absolute;
-    right:97px;
+    right:90px;
+    top:2px;
+}
+.create{
+    position: relative;
+    right:100px;
+}
+.logout-btn{
+    position: relative;
+    left:90px;
+    top:140px;
+    font-size: 21px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color:black;
+
 }
 
 .profile-image{
@@ -134,7 +160,7 @@
 }
 
 .modal-content {
-    position: relative;
+    position: fixed;
     border-radius: 5px;
     max-width: 500px;
     margin: 10% auto;
@@ -176,6 +202,7 @@
 
 
 
+
 /* Style the file input to be hidden and take up the full container */
 .input-file  {
     display:none;
@@ -187,24 +214,30 @@
     height: 100%;
     cursor: pointer;
 }
+.btns{
+    position: relative;
+    width:100px;
+}
+.btn-post{
+    position: relative;
+    right:10px;
+    top:20px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(47, 47, 206);
+    color:white;
+    padding:10px 10px;
+}
 
 
 .gallery{
     position: relative;
     width:30px;
     height:30px;
+    bottom:60px;
+    right:80px;
+    cursor: pointer;
 
-    bottom:390px;
-    right:90px;
-    cursor: pointer;
-}
-.gallery1{
-    position: relative;
-    width:30px;
-    height:30px;
-    bottom:390px;
-    right:8v0px;
-    cursor: pointer;
 }
 
 
@@ -246,14 +279,31 @@
     position: relative;
     width:90px;
     border-radius: 30px;
-    left:290px;
-    bottom:440px;
+    left:310px;
+    bottom:115px;
+}
+.line{
+    position: absolute;
+    color:rgb(159, 143, 143);
+    width:500px;
+    height:300px;
+    left:2px;
+    top: 270px;
+
+
 }
 .tag{
     position: absolute;
     color:rgb(78, 165, 194);;
-    bottom:80px;
-    right:300px;
+    bottom:70px;
+    right:250px;
+    text-decoration: none;
+    font-size: 21px;
+}
+.tag2{
+    position: relative;
+    top:5px;
+    right:7px;
 }
 
 
@@ -261,15 +311,24 @@
 input::placeholder {
     font-size: 20px;
   }
-  .line{
-    position: relative;
-    color:blue;
-    width:500px;
-    height:300px;
-    bottom:90px;
-    right:100px;
-    z-index: 1;
+
+
+  .search{
+    position: absolute;
+    bottom:550px;
+    left:1350px;
+
   }
 
-
+.search-btn{
+    position:absolute;
+    background-color: lightgrey;
+    border-radius: 30px;
+    border: none;
+    padding:20px 20px;
+    right:70px;
+    width:300px;
+    height:50px;
+    outline: none;
+}
 

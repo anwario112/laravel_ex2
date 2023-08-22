@@ -32,14 +32,14 @@
 }
 
 .like{
- position: relative;
- top:150px;
+ position: absolute;
+ top:430px;
  left:50px;
  font-size: 27px;
 }
 .dislike{
-    position: relative;
- top:107px;
+ position: absolute;
+ top:430px;
  left:120px;
  font-size: 17px;
  text-decoration: none;
@@ -49,19 +49,24 @@
     position: relative;
     background-color: #fff;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     border-bottom: 1px solid #ccc;
     border-radius: 5px;
     display: block;
     width:500px;
     height:490px;
-    left:180px;
+    left:300px;
+    bottom:100px;
+
   }
 
   .posts{
-    width: 80%; /* Adjust the width as per your preference */
-    margin: 0 auto; /* Center the form on the page */
+    width: 80%;
+    margin: 0 auto;
+
   }
+
+
   .point{
     position: relative;
     left:400px;
@@ -77,7 +82,7 @@
     font-size: 18px;
     font-family:'Times New Roman', Times, serif;
   }
-  
+
 
 
 #openModalBtn{
@@ -102,11 +107,6 @@
     top: 190px;
     width: 25%;
     height: 25%;
-
-
-
-
-
   }
 
   /* Modal Content */
@@ -163,8 +163,9 @@
     position: relative;
     font-weight: bold;
     bottom:25px;
-    left:50px;
+    left:20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    top:20px;
    }
    .users{
     position: relative;
@@ -185,6 +186,8 @@
     z-index: 1;
     left:40px;
    }
+
+   
 
 
 

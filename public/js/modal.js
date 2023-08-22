@@ -1,5 +1,5 @@
 
-
+   
 
 document.addEventListener('DOMContentLoaded', function () {
     const openModalBtn = document.getElementById('create-btn');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     closeModalBtn.addEventListener('click', () => {
-        drop_modal.style.display = 'none';
+        modal.style.display = 'none';
     });
 
     window.addEventListener('click', (event) => {
